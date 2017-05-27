@@ -22,6 +22,14 @@ module.exports = class QueryResolver {
                         id,
                         version
                     };
+                },
+
+                libraries: async function (obj, args, context, info) {
+                    const result = await db.libraries.allDocs({
+                        include_docs: true
+                    });
+
+                    return result.rows.map(row => row.doc);
                 }
             }
         };

@@ -1,11 +1,13 @@
 const _ = require('lodash');
 
-const Query = require('./query');
+const Query = require('./query'),
+      Mutation = require('./mutation');
 
 const Schema = `
     schema {
-        query: Query
+        query: Query,
+        mutation: Mutation
     }
 `;
 
-module.exports = _.flattenDeep([Schema, Query]);
+module.exports = _.flattenDeep([Schema, Query, Mutation]);

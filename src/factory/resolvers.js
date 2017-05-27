@@ -9,7 +9,8 @@ class ResolversFactory {
 
         this.resolvers = _.merge(
             ...[
-                new (require('@src/graphql/resolvers/query'))(DatabaseFactory.instance.db, require('uuid/v4'))
+                new (require('@src/graphql/resolvers/query'))(DatabaseFactory.instance.db, require('uuid/v4')),
+                new (require('@src/graphql/resolvers/mutation'))(DatabaseFactory.instance.db, require('uuid/v4')),
             ]
             .map(resolver => resolver.resolvers)
         );
