@@ -9,7 +9,7 @@ module.exports = class MutationResolver {
                     });
 
                     // Get the library DB so it's created on the disk.
-                    await db.library(result.id);
+                    db.library(result.id);
                     return db.libraries.get(result.id);
                 },
 
