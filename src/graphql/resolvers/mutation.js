@@ -18,7 +18,7 @@ module.exports = class MutationResolver {
                 },
 
                 deleteLibraries: async function (obj, args, context, info) {
-                    return Promise.all(args.ids.map(id => db.deleteLibrary(id)));
+                    return args.ids.map(id => db.deleteLibrary(id));
                 }
             }
         };
