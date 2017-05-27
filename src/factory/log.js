@@ -6,7 +6,11 @@ class LogFactory {
             transports: [
                 new (winston.transports.Console)({ level: 'debug' })
             ]
-        })
+        });
+
+        this.nullLogger = new (winston.Logger)({
+            transports: []
+        });
     }
 }
 
