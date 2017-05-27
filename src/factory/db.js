@@ -1,4 +1,5 @@
-const path = require('path');
+const fs = require('fs'),
+      path = require('path');
 
 const Database = require('@src/db');
 
@@ -9,7 +10,8 @@ class DatabaseFactory {
 
         const LogFactory = require('./log');
 
-        this.db = new Database(PouchDB, global.program.dataFolder || this.appDataFolder(), LogFactory.instance.logger);
+        this.db = new Database(PouchDB, global.program.dataFolder || this.appDataFolder(), fs, 
+            LogFactory.instance.logger);
     }
 
     /**

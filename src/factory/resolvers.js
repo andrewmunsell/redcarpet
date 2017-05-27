@@ -5,9 +5,11 @@ const Schema = require('@src/graphql');
 
 class ResolversFactory {
     constructor() {
+        const DatabaseFactory = require('./db');
+
         this.resolvers = _.merge(
             ...[
-                new (require('@src/graphql/resolvers/version'))()
+                new (require('@src/graphql/resolvers/query'))(DatabaseFactory.instance.db, require('uuid/v4'))
             ]
             .map(resolver => resolver.resolvers)
         );
