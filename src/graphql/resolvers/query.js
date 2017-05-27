@@ -2,10 +2,6 @@ module.exports = class QueryResolver {
     constructor(db, uuid) {
         this.resolvers = {
             Query: {
-                version: function (obj, args, context, info) {
-                    return require('@redcarpet/package.json').version;
-                },
-
                 server: async function (obj, args, context, info) {
                     var id;
                     try {
@@ -20,8 +16,11 @@ module.exports = class QueryResolver {
                         }
                     }
 
+                    const version = require('@redcarpet/package.json').version;
+
                     return {
-                        id
+                        id,
+                        version
                     };
                 }
             }

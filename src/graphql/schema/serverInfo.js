@@ -3,6 +3,9 @@ const ServerInfo = `
     type ServerInfo {
         # Unique ID of the server.
         id: String!
+
+        # Version number of the server software.
+        version: String!
     }
 `;
 
