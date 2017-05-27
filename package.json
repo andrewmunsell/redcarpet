@@ -4,7 +4,7 @@
   "description": "Red Carpet media server",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha --recursive -r module-alias/register test/*"
   },
   "keywords": [
     "media",
@@ -33,5 +33,11 @@
   "_moduleAliases": {
     "@redcarpet": ".",
     "@src": "./src"
+  },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "nyc": "^10.3.2"
   }
 }
