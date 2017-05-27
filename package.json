@@ -4,7 +4,8 @@
   "description": "Red Carpet media server",
   "main": "src/index.js",
   "scripts": {
-    "test": "nyc mocha --recursive -r module-alias/register test/*"
+    "test": "nyc mocha --recursive -r module-alias/register test/*",
+    "coverage": "nyc report --reporter=html"
   },
   "keywords": [
     "media",
@@ -27,6 +28,13 @@
     "uuid": "^3.0.1",
     "winston": "^2.3.1"
   },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "nyc": "^10.3.2",
+    "testdouble": "^2.1.2"
+  },
   "engines": {
     "node": "^7.0.0"
   },
@@ -34,10 +42,10 @@
     "@redcarpet": ".",
     "@src": "./src"
   },
-  "devDependencies": {
-    "chai": "^4.0.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
-    "nyc": "^10.3.2"
+  "nyc": {
+    "exclude": [
+      "test",
+      "src/factory/**"
+    ]
   }
 }
